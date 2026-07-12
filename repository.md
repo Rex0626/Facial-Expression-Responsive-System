@@ -9,12 +9,27 @@ Facial-Expression-Responsive-System/
 │
 ├── phase1_expression_detection/
 │   │
-│   ├── models/
+│   │
 │   ├── dataset/
+│   │   └── fer2013/
+│   │
 │   ├── checkpoints/
+│   │
+│   ├── models/
+│   │   └── resnet18_emotion.py
+│   │
+│   ├── utils/
+│   │   ├── dataset.py
+│   │   ├── transforms.py
+│   │   ├── metrics.py
+│   │   └── seed.py
+│   │
+│   ├── config.py
 │   ├── train.py
+│   ├── evaluate.py
 │   ├── inference.py
-│   └── utils.py
+│   ├── test_dataset.py
+│   └── test_model.py
 │
 ├── phase2_emotion_memory/
 │   │

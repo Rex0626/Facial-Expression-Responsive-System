@@ -133,6 +133,17 @@ Would you like to talk about it?
 * LSTM
 * Transformer
 
+## Dataset
+
+This project uses FER2013 Facial Expression Dataset.
+
+Due to dataset size and licensing considerations,
+the dataset is not included in this repository.
+
+Please download the dataset manually and place it under:
+
+phase1_expression_detection/dataset/fer2013/
+
 # Future Development
 
 * Voice interaction

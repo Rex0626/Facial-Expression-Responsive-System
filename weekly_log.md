@@ -1,43 +1,108 @@
 # Weekly Development Log
 
-## Week 1
+# Weekly Development Log
 
-### Goal
+# Week 1
 
-Initialize project architecture and development environment.
+## Goal
 
-### Completed
+Initialize the Facial Expression & Responsive System project and establish the Phase 1 development environment.
 
-* Created GitHub repository
-* Designed three-phase system architecture
-* Created project documentation
-* Built Python virtual environment
+## Completed Tasks
 
-### Current Environment
+### Project Setup
 
-Python:
+* Created GitHub repository structure.
+* Designed three-stage development roadmap:
 
 ```
-3.10
+Phase 1:
+Facial Expression Detection
+
+Phase 2:
+Deep Emotion Memory
+
+Phase 3:
+Emotion-aware Response System
 ```
 
-Framework:
+### Environment Setup
+
+Completed Python development environment:
+
+* Python 3.10
+* PyTorch
+* Torchvision
+* OpenCV
+* MediaPipe
+
+### Phase 1: Facial Expression Detection
+
+Completed:
+
+* Selected FER2013 as the emotion recognition dataset.
+* Designed Phase 1 architecture.
+* Implemented ResNet18-based emotion classification model.
+* Modified ResNet18 input layer for grayscale facial images.
+* Modified classifier output layer for 7 emotion categories.
+
+Current emotion categories:
 
 ```
-PyTorch
-OpenCV
-MediaPipe
+Angry
+Disgust
+Fear
+Happy
+Sad
+Surprise
+Neutral
 ```
 
-### Next Steps
+### Model Verification
 
-Phase 1 development:
+Successfully tested model forward propagation.
 
-* Prepare emotion dataset
-* Implement face detection
-* Build first emotion classification model
+Test result:
+
+```
+Device:
+CPU
+
+Output:
+torch.Size([4,7])
+```
+
+The model can successfully receive image tensors and output seven emotion classification scores.
 
 ---
+
+# Next Week Goals
+
+## Phase 1: Data Pipeline
+
+Tasks:
+
+* Implement FER2013 dataset loader.
+* Add image preprocessing and augmentation.
+* Create PyTorch DataLoader.
+
+## Phase 1: Training Pipeline
+
+Tasks:
+
+* Implement training loop.
+* Add validation process.
+* Train ResNet18 emotion classifier.
+* Save trained model checkpoints.
+
+## Future Development
+
+After completing emotion recognition:
+
+* Develop temporal emotion memory model.
+* Add emotion history tracking.
+* Build responsive interaction module.
+
 
 ## Week 2
 

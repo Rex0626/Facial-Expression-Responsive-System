@@ -1,0 +1,68 @@
+# ==========================
+# Python
+# ==========================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+*.egg-info/
+dist/
+build/
+
+
+# ==========================
+# Virtual Environment
+# ==========================
+
+venv/
+.env/
+.conda/
+
+# Conda environment
+emotion_ai/
+
+
+# ==========================
+# Dataset
+# ==========================
+
+# Training datasets
+dataset/
+datasets/
+
+# FER2013
+**/fer2013/
+
+
+# ==========================
+# Model Checkpoints
+# ==========================
+
+checkpoints/
+*.pth
+*.pt
+*.ckpt
+
+
+# ==========================
+# Jupyter
+# ==========================
+
+.ipynb_checkpoints/
+
+
+# ==========================
+# IDE
+# ==========================
+
+.vscode/
+.idea/
+
+
+# ==========================
+# OS
+# ==========================
+
+.DS_Store
+Thumbs.db
