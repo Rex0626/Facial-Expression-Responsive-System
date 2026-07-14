@@ -2,151 +2,274 @@
 
 ## Overview
 
-This project aims to develop an intelligent emotion-aware interaction system capable of recognizing human facial expressions, learning emotional patterns through deep learning-based memory, and generating appropriate responses.
+The Facial Expression & Responsive System is an AI-based emotion-aware interaction system designed to understand human emotional states through facial expressions, learn emotional patterns over time, and generate appropriate responses.
 
-The system is developed in three stages:
+The system aims to combine computer vision, deep learning, emotion memory modeling, and intelligent interaction mechanisms to build a more natural human-AI interaction experience.
 
-1. Facial Expression Detection
-2. Deep Emotion Memory Modeling
-3. Emotion-aware Response Generation
+---
 
-## System Pipeline
+# System Goal
 
-```
-Camera
-  |
-  v
-Face Detection
-  |
-  v
+Human emotions are dynamic and cannot always be represented by a single facial expression.
+
+Therefore, this project focuses on three stages:
+
+1. Understanding current emotional states through facial expression recognition.
+2. Learning emotional changes through temporal emotion memory.
+3. Providing adaptive responses based on emotional conditions.
+
+---
+
+# System Architecture
+
+```text
+Input
+ |
+ v
+Camera / Image Input
+ |
+ v
+Facial Expression Detection
+ |
+ v
 Emotion Recognition Model
-  |
-  v
-Emotion Memory
-  |
-  v
-Response System
+ |
+ v
+Emotion Memory Module
+ |
+ v
+Response Generation System
 ```
 
-# Phase 1: Facial Expression Detection
+The system gradually evolves from emotion perception to emotion understanding and finally to emotion-aware interaction.
 
-Goal:
+---
 
-Recognize human facial expressions from camera input.
+# Development Roadmap
 
-Features:
+# Phase 1: Facial Expression Detection ✅
 
-* Face detection
-* Facial feature extraction
-* Emotion classification
+## Goal
 
-Output:
+Develop a deep learning-based facial expression recognition system capable of identifying human emotions from facial images.
+
+## Functions
+
+* Facial image preprocessing
+* Facial expression classification
+* Emotion confidence estimation
+* Real-time emotion recognition
+
+## Architecture
+
+```text
+Image Input
+
+    |
+    v
+
+Face Detection
+
+    |
+    v
+
+Image Preprocessing
+
+    |
+    v
+
+CNN-based Emotion Classifier
+
+    |
+    v
+
+Emotion Prediction
+```
+
+## Technology
+
+* PyTorch
+* CNN
+* ResNet18
+* OpenCV
+* MediaPipe
+
+## Dataset
+
+FER2013 Facial Expression Dataset
+
+Emotion Categories:
 
 ```
-Emotion:
+Angry
+Disgust
+Fear
 Happy
-
-Confidence:
-0.92
+Neutral
+Sad
+Surprise
 ```
 
-# Phase 2: Deep Emotion Memory
+---
 
-Goal:
+# Phase 2: Deep Emotion Memory ⬜
 
-Enable the system to understand emotional changes over time.
+## Goal
 
-Approach:
+Extend emotion recognition from single-frame classification to temporal emotional understanding.
 
-* Emotion sequence recording
+Instead of only answering:
+
+> "What emotion is the person showing now?"
+
+The system will learn:
+
+> "How has the person's emotional state changed over time?"
+
+## Functions
+
+* Emotion history recording
 * Temporal emotion analysis
-* Deep learning memory model
+* Emotional state tracking
+* Long-term emotion representation
 
-Possible models:
+## Possible Technologies
 
 * LSTM
 * GRU
 * Transformer
+* Temporal Neural Network
 
-Example:
+## Architecture
 
-```
-Happy
-Happy
-Neutral
-Sad
+```text
+Emotion Sequence
 
-↓
+      |
+      v
 
-Emotion Trend:
-Negative transition
-```
+Temporal Memory Model
 
-# Phase 3: Responsive System
+      |
+      v
 
-Goal:
+Emotion State Representation
 
-Generate suitable responses according to emotional states.
+      |
+      v
 
-Methods:
-
-* Rule-based response
-* Machine learning decision model
-* LLM integration
-
-Example:
-
-Input:
-
-```
-Emotion:
-Sad
-
-History:
-Sad for several hours
+Emotion Trend Analysis
 ```
 
-Output:
+---
 
+# Phase 3: Emotion-aware Response System ⬜
+
+## Goal
+
+Generate appropriate responses based on current emotions and historical emotional patterns.
+
+## Functions
+
+* Emotion-based decision making
+* Personalized interaction
+* Context-aware response generation
+
+## Possible Technologies
+
+* Rule-based System
+* Machine Learning Decision Model
+* Large Language Model (LLM)
+* AI Agent Framework
+
+## Architecture
+
+```text
+Emotion State
+
+      +
+
+Emotion Memory
+
+      |
+
+      v
+
+Response Decision Model
+
+      |
+
+      v
+
+Interactive Response
 ```
-Would you like to talk about it?
-```
+
+---
 
 # Technology Stack
 
-## Programming
+## Programming Language
 
 * Python
 
-## AI Framework
+## Deep Learning Framework
 
 * PyTorch
+* Torchvision
 
 ## Computer Vision
 
 * OpenCV
 * MediaPipe
 
-## Deep Learning
+## AI Models
 
 * CNN
+* ResNet
 * LSTM
+* GRU
 * Transformer
+* Large Language Model
 
-## Dataset
+---
 
-This project uses FER2013 Facial Expression Dataset.
+# Current Progress
 
-Due to dataset size and licensing considerations,
-the dataset is not included in this repository.
+```text
+Phase 1: Facial Expression Detection
 
-Please download the dataset manually and place it under:
+✅ Dataset Preparation
 
-phase1_expression_detection/dataset/fer2013/
+✅ Deep Learning Model
+
+✅ Training Pipeline
+
+✅ Evaluation System
+
+✅ Image Inference
+
+⚠️ Real-time Camera Testing
+
+
+Phase 2: Deep Emotion Memory
+
+⬜ Not Started
+
+
+Phase 3: Responsive System
+
+⬜ Not Started
+```
+
+---
 
 # Future Development
 
+Planned extensions:
+
+* Emotion memory modeling
+* Personalized emotion understanding
 * Voice interaction
-* LLM Agent integration
+* LLM-based companion agent
 * ROS2 robot integration
-* Personalized emotion model
+* Social robot application

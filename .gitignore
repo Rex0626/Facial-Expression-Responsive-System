@@ -34,6 +34,11 @@ datasets/
 # FER2013
 **/fer2013/
 
+*.png
+*.jpg
+*.jpeg
+*.txt
+*.json
 
 # ==========================
 # Model Checkpoints
