@@ -16,6 +16,10 @@ Facial Expression Detection
 
 Phase 2
 Emotion Memory
+    Step 1 Database Layer (SQLite)
+    Step 2 Smoothing Algorithm (EMA)
+    Step 3 Trend Detection
+    Step 4 Camera Capture Integration
 
 Phase 3
 Emotion-aware Response System
@@ -35,7 +39,12 @@ Emotion-aware Response System
 | Step 6 Real-time Camera  | ⚠️ Implemented / Not Tested |
 
 ## Phase 2 - Emotion Memory
-⬜ Not Started
+| Step                          |     Status    |
+| ------------------------------ | :-----------: |
+| Step 1 資料庫層 (SQLite)       |  ✅ Completed  |
+| Step 2 平滑演算法 (EMA)        |  ✅ Completed  |
+| Step 3 趨勢判斷                |  ✅ Completed  |
+| Step 4 攝影機擷取整合          | ⚠️ Implemented / Not Tested |
 
 ## Phase 3 - Emotion-aware Response System
 ⬜ Not Started
@@ -242,4 +251,34 @@ Start Phase 2: Emotion Memory Module.
 * Prepare LSTM / GRU / Transformer based memory model.
 
 ## Progress
-(To be updated)
+
+### 架構設計
+完成 Phase 2 資料夾架構規劃，對應 `repository.md` 原始設計：
+* `database/` — 逐幀情緒紀錄儲存
+* `memory_model/` — 保留給之後的時序模型（GRU/LSTM），目前為空
+
+### 資料儲存層
+實作 SQLite 資料庫層（`database/db.py`）：
+* 逐幀紀錄包含 `session_id`、`timestamp`、`emotion`、`confidence`、完整機率分佈
+* 用 `session_id` 區分每次攝影機觀察區間
+* 保留原始（未平滑）資料，供之後訓練模型使用
+
+### 情緒記憶核心邏輯
+實作 `emotion_memory.py`：
+* EMA（指數移動平均）平滑，處理單幀雜訊
+* 情緒持續時間計算（容許短暫中斷）
+* 趨勢判斷（improving / worsening / stable），採用機率加權平均效價，而非單純 argmax 比較
+
+### 攝影機整合
+實作 `capture_session.py`，沿用 Phase 1 訓練好的模型與 MediaPipe 人臉偵測，
+逐幀寫入資料庫，並即時顯示平滑後的情緒。
+
+### 測試
+以模擬資料驗證核心邏輯（`emotion_memory.py` 的平滑與趨勢判斷），
+邏輯正確。**尚未用真實攝影機資料實際測試**，這是下週的首要工作。
+
+## Next Steps
+* 實際執行 `capture_session.py`，錄製多段真實情緒序列
+* 檢視平滑效果與趨勢判斷是否符合直覺
+* 視情況調整 `SMOOTHING_WINDOW`、`TREND_THRESHOLD` 等參數
+* 累積足夠資料後評估是否需要訓練時序模型取代目前的統計 baseline
